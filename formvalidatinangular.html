@@ -1,0 +1,13 @@
+<html>
+   <head>
+      <title>AngularJS Expressions </title>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>   </head>  
+   <body ng-app="" >
+      <h1>Sample Application</h1>      
+            <form name="first">
+                <lable>Enter Name</lable>
+                <input type="text" name="name" ng-model="user.name" ng-required="true"><br>
+                <p>{{first.user.name.$valid}}</p>
+            </form>
+   </body>
+</html> 
