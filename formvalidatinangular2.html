@@ -4,23 +4,40 @@
     <title>
         AngularJs Validate Controls in Form
     </title>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+   <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> --> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+
     <script type="text/javascript">
         var app = angular.module('formApp', []);
         app.controller('formCtrl', function ($scope) {
             $scope.sendForm = function () {
-                $scope.msg = "Form Validated";
+                $scope.msg = "Form not Validated";
             };
         });
     </script>
+    <style>
+        input.ng-invalid
+        {
+            border: 2px solid red;
+        }
+        input.ng-valid
+        {
+            border: 2px solid blue;
+        }
+    </style>
+ 
 </head>
 <body>
-    <div ng-app="formApp" ng-controller="formCtrl">
-        <form name="personForm" ng-submit="sendForm()">
-            First Name:<input type="text" name="firstname" ng-model="person.fname" required />
-            <span ng-show="personForm.firstname.$error.required"> Required! </span> <br /><br />
+    <div ng-app="formApp" ng-controller="formCtrl" >
+        <form name="personForm" ng-submit="sendForm()"  >
+            First Name:<input type="text" name="firstname" ng-model="person.fname" ng-required="true"  ng-minlength="5"/>
+            <span>
+                <span ng-show="personForm.firstname.$error.required"> Required! </span> 
+                <span ng-show="personForm.firstname.$error.minlength"> Too Short </span> 
+            </span><br><br>
+            
             Last Name:<input type="text" name="lastname" ng-model="person.lname" required />
-            <span ng-show="personForm.lastname.$error.required"> Required! </span> <br /><br />
+            <span   ng-show="personForm.lastname.$error.required"> Required! </span> <br /><br />
             <button type="submit">Submit Form</button><br /><br />
             <span>{{msg}}</span>
         </form>
