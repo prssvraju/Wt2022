@@ -41,7 +41,7 @@
 </head>
 <body>
     <div ng-app="formApp" ng-controller="formCtrl" >
-        <form name="personForm" ng-submit="sendForm()"  >
+        <form name="personForm" ng-submit="sendForm()" novalidate >
             First Name:<input type="text" id="firstname" name="firstname" ng-model="person.fname" ng-required="true"  ng-minlength="5"/>
             <span>
                 <span ng-show="personForm.firstname.$error.required"> Required! </span> 
@@ -50,7 +50,7 @@
             
             Last Name:<input type="text"  id="lastname" name="lastname" ng-model="person.lname" required />
             <span   ng-show="personForm.lastname.$error.required"> Required! </span> <br /><br />
-            <button type="submit">Submit Form</button><br /><br />
+            <button type="buttpn" ng-click="sendForm()"> Submit Form</button><br /><br />
             <span>
                 <span>{{msg}}</span><br>
                 <span>{{firstname}}</span><br>
