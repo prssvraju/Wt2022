@@ -11,12 +11,9 @@
         var app = angular.module('formApp', []);
         app.controller('formCtrl', function ($scope) {
             $scope.sendForm = function () {
-                var   fname=angular.element(document.getElementById("firstname"));      
-                var   lname=angular.element(document.getElementById("lastname"));      
-
-                $scope.firstname = fname.val();
-                $scope.lastname = lname.val();
-                if($scope.firstname=="raghu"&&$scope.lastname=="ravi")
+                $scope.firstname = $scope.person.fname;
+                $scope.lastname = $scope.person.lname;
+                if(firstname =="raghu"&& lastname=="teja")
                 {
                     $scope.msg = "Form is Validated";
                 }
@@ -50,11 +47,11 @@
             
             Last Name:<input type="text"  id="lastname" name="lastname" ng-model="person.lname" required />
             <span   ng-show="personForm.lastname.$error.required"> Required! </span> <br /><br />
-            <button type="buttpn" ng-click="sendForm()"> Submit Form</button><br /><br />
+            <button type="submit"> Submit Form</button><br>
             <span>
                 <span>{{msg}}</span><br>
-                <span>{{firstname}}</span><br>
-                <span>{{lastname}}</span>
+                <span> First Name : {{firstnames}}</span><br>
+                <span> LastName Name : {{lastname}}</span>
             </span>
         </form>
     </div>
