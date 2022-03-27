@@ -9,7 +9,7 @@ http.createServer(function (req, res) {
     else 
     {
       res.write("<h1> Open operation complete. </h1>");
-      res.write("File Content : :"+file['name']);
+      res.write("File Content : :"+file);
       console.log(file)
     }
     return res.end;
