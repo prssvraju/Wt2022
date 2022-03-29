@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+        <script>
+            var app = angular.module("firstapp",[]);
+            app.controller("mycontroller",function($scope)
+            {
+                $scope.mycode = function(){
+                    alert($scope.person.fname);
+                };
+            });
+        </script>
+        <style>
+            input.ng-valid
+            {
+                border: 2px solid blue;
+            }
+            input.ng-invalid
+            {
+                border:2px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <div ng-app="firstapp" ng-controller="mycontroller"  >
+            <form name="myform" ng-submit="mycode()" novalidate>
+                <input type="text" ng-model="person.fname" name="firstname"  ng-required="true" >
+                <span ng-show="myform.firstname.$error.required">First Name is required</span><br>
+                <button type="submit">Save Info</button>
+            </form>
+        </div>
+    </body>
+</html>
