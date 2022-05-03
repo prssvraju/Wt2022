@@ -7,7 +7,7 @@ http.createServer(function(req,res){
     res.write("<h1>pathname : </h1>"+q.pathname); //returns '/default.htm'
     res.write("<h1>Search : </h1>"+q.search); //returns '?year=2017&month=february'
     var qdata = q.query; //returns an object: { year: 2017, month: 'february' }
-    res.write("<h1>Month : </h1>"+qdata.month);
+    res.write("<h1>Month : </h1>"+qdata.year);
     res.end;
 }).listen(8080);
 
